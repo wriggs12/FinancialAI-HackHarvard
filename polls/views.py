@@ -198,7 +198,7 @@ def output(request):
     newPage += inflationSection(inflationRate)
 
     newPage += '<form>' \
-               '<a href="http://127.0.0.1:8000/">BACK</a>' \
+               '<a href="https://financial-ai.herokuapp.com/">BACK</a>' \
                '</form>' \
                '<footer>' \
                '&copy; Copyright <strong><span>FinancialAI</span></strong><br>All Rights Reserved' \
