@@ -114,7 +114,7 @@ def output(request):
               'border-radius: 5px;' \
               'border: 1px solid grey;' \
               'margin: 3em auto;' \
-              'height: 30em;' \
+              'height: 24em;' \
               '}' \
               '.card img {' \
               'width: 15em;' \
@@ -149,30 +149,41 @@ def output(request):
               '<h1 id="name">Financial AI</h1>' \
               '<div class="overview">' \
               '<div class="bubble">' \
-              '<h1>Credit Score</h1>' \
+              '<h1>Your Credit Score</h1>' \
               '<h3>'
 
     scoreBijection = {'1': '720 - 850 (Excellent)', '2': '690 - 719 (Good)', '3': '630 - 689 (Fair)', '4': '300 - 629 (Bad)', '5': 'No Credit'}
 
     newPage += scoreBijection[creditScore]
     newPage += '</h3>' \
+               '<p>' \
+               'A good credit score gets you good interest rates on loans' \
+               '</p>' \
                '</div>' \
                '<div class="bubble">' \
                '<h1>Net Monthly Income</h1>' \
                '<h3>'
 
     netIncome = int(income) - int(expenses);
-    newPage += '$' + str(netIncome)
+    newPage += '$' + ("{:,}".format(int(netIncome)))
     newPage += '</h3>' \
+               '<p>' \
+               'Net income is what you can use to grow your wealth over time' \
+               '</p>' \
                '</div>' \
                '<div class="bubble">' \
-               '<h1>Net Worth</h1>' \
+               '<h1>Your Net Worth</h1>' \
                '<h3>'
 
 
     netWorth = int(wealth) - int(debt)
-    newPage += '$' + str(netWorth)
+    newPage += '$' + ("{:,}".format(int(netWorth)))
     newPage += '</h3>' \
+               '<p>'
+
+    newPage += formatNetworth(netWorth, age)
+
+    newPage += '</p>' \
                '</div>' \
                '</div>' \
                '<div class="creditCards">' \
@@ -180,7 +191,7 @@ def output(request):
 
     newPage += creditCards(creditScore, creditLimit, images)
 
-    newPage += emergencyFund(savings, expenses, totalIvestments)
+    newPage += emergencyFund(savings, expenses, retirement, age)
 
     inflationRate = predictInflation()
 
@@ -212,14 +223,12 @@ def inflationSection(inflationRate):
                '<h2>S&P 500 2020 Return: 18.4%</h2>' \
                '<h2>Average Real Estate 2020 Return: 11.6%</h2>' \
                '<h2>Gold 2020 Return: 28%</h2>' \
-               '<h1>Something that was $10,000 in 2011, would now cost $12,422.</h1>' \
-               '<h2>A 24% decrease in the value of <b>your</b> money.</h2>' \
                '</div>' \
                '</div>'
 
     return section
 
-def emergencyFund(savings, expenses, totalInvestments):
+def emergencyFund(savings, expenses, retirement, age):
     minSaved = int(expenses) * 3
     maxSaved = int(expenses) * 6
 
@@ -228,7 +237,7 @@ def emergencyFund(savings, expenses, totalInvestments):
                   '<h1>Savings</h1>' \
                   '<h2>Currently Saved: $'
 
-    saveSection += savings
+    saveSection += ("{:,}".format(int(savings)))
     saveSection += '</h2>'
 
     if (int(savings) > int(maxSaved)):
@@ -242,15 +251,31 @@ def emergencyFund(savings, expenses, totalInvestments):
 
     saveSection += '</div>' \
                    '<div class="save">' \
-                   '<h1>Investments</h1>' \
-                   '<h2>Currently Invested: $'
+                   '<h1>Retirement</h1>' \
+                   '<h2>Current Retirement: $'
 
-    saveSection += totalInvestments
+    saveSection += ("{:,}".format(int(retirement)))
     saveSection += '</h2>' \
+                   '<h3>' \
+                   'If current amount is invested into an S&P 500 index fund, at 65 years old the account value will be:<br>'
+    saveSection += '$' + compound(age, retirement)
+
+    saveSection += '</h3>' \
                    '</div>' \
                    '</div>'
 
     return saveSection
+
+def compound(age, retirement):
+    amount = float(retirement)
+    for i in range (65 - int(age)):
+        amount *= 1.15
+    integerAmount = int(amount * 100)
+    floatAmount = float(integerAmount) / 100
+
+    finalNum = "{:,}".format(floatAmount)
+
+    return finalNum
 
 def formatNetworth(netWorth, age):
     avgWorthByAge = [[0, 34, '$76,340'],
@@ -262,7 +287,7 @@ def formatNetworth(netWorth, age):
 
     for i in range(5):
         if (int(age) >= avgWorthByAge[i][0] & int(age) <= avgWorthByAge[i][1]):
-            return 'Your net worth is $' + str(netWorth) + '.<br>The average net worth for your age group is ' + avgWorthByAge[i][2] + '<br>'
+            return 'The average net worth for your age group is ' + avgWorthByAge[i][2]
 
 def creditCards(creditScore, creditLimit, images):
     cards = [['name','credit_low','credit_high','cash_back','annual_fee', 'img', 'link'],
@@ -385,7 +410,9 @@ def prepData():
                 fedDebtData.append(data[1])
 
         for i in range(len(cpiData)):
-            writer.writerow([int(cpiData[i]), int(gdpData[i]), int(realGdpData[i]), int(m1vData[i]), int(m2vData[i]), int(ffRateData[i]), int(unRateData[i]), int(fedDebtData[i])])
+            writer.writerow(
+                [int(cpiData[i]), int(gdpData[i]), int(realGdpData[i]), int(m1vData[i]) * 100, int(m2vData[i]) * 100,
+                 int(ffRateData[i]) * 100, int(unRateData[i]) * 100, int(fedDebtData[i])])
 
 
 def getData(url, key):
@@ -399,16 +426,18 @@ def trainModel(features, labels):
 
     d = {'gdp': [22300],
          'real_gdp': [19550],
-         'm1v': [1],
-         'm2v': [1],
-         'ff_rate': [0],
-         'un_rate': [4],
+         'm1v': [119],
+         'm2v': [112],
+         'ff_rate': [6],
+         'un_rate': [590],
          'fed_debt': [29000000]}
     df = pd.DataFrame(data = d)
 
     prediction = classifier.predict(df)
 
-    curCPI = 256
+
+
+    curCPI = 255
 
     inflation = int((((prediction / curCPI) - 1) * 100) * 4)
 
