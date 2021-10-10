@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+
+    <title>Financial AI</title>
+
+    <link rel="stylesheet" href="{% static 'main.css' %}">
+    <link rel="shortcut icon" type="image/jpg" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjPzoOm3_5AkBtG7ZQ93qYTJQUYwTcwa57xg&usqp=CAU" />
+
+</head>
+
+<body>
+
+<img src="{% static 'FinancialAI_banner.png' %}" class="mainBanner">
+
+<div class="textbox">
+    <form method="POST" action="#"> {% csrf_token %}
+
+        <div class="banner1">
+            <h1>Credit</h1>
+        </div>
+
+        <div class="select-box">
+            <label for="select-box" class="label select-box">
+                <span class="label-desc">Choose your credit score: </span>
+            </label>
+            <select id="select-box" class="select" name="creditScore">
+                <option value="1">720 - 850 (Excellent)</option>
+                <option value="2">690 - 719 (Good)</option>
+                <option value="3">630 - 689 (Fair)</option>
+                <option value="4">300 - 629 (Bad)</option>
+                <option value="5">No Credit Score</option>
+            </select>
+        </div>
+        <br>
+
+        <label>Number of Credit Lines: *</label><br>
+        <input type="creditLines" name="creditLines" placeholder="Credit Lines" required/>
+        <br>
+        <br>
+
+        <label>Current Credit Limit: *</label><br>
+        <input type="creditLimit" name="creditLimit" placeholder="Credit Limit" required/>
+        <br>
+        <br>
+
+        <label>Amount of Credit Debt: *</label><br>
+        <input type="creditDebt" name="creditDebt" placeholder="Credit Debt" required/>
+        <br>
+
+        <div class="banner">
+            <h1>Investments and Savings</h1>
+        </div>
+
+        <label>Monthly Income: *</label><br>
+        <input type="income" name="income" placeholder="Income" required/>
+        <br>
+        <br>
+
+        <label>Essential Monthly Expenses: *</label><br>
+        <input type="expense" name="expenses" placeholder="Expenses" required/>
+        <br>
+        <br>
+
+        <label>Amount in Savings: *</label><br>
+        <input type="savings" name="savings" placeholder="Savings" required/>
+        <br>
+        <br>
+
+        <label>Amount in Retirement Accounts: *</label><br>
+        <input type="retirement" name="retirement" placeholder="Retirement" required/>
+        <br>
+        <br>
+
+        <label>Total Amount Invested: *</label><br>
+        <input type="investments" name="investments" placeholder="Investments" required/>
+        <br>
+        <br>
+
+        <label>Age: *</label><br>
+        <input type="age" name="age" placeholder="Age" required/>
+        <br>
+
+        <div class="banner">
+            <h1>Net Worth</h1>
+        </div>
+
+        <label>Total Wealth: *</label><br>
+            <input type="wealth" name="wealth" placeholder="Wealth" required/>
+        <br>
+        <br>
+
+        <label>Total Debt: *</label><br>
+            <input type="debt" name="debt" placeholder="Debt" required/>
+
+        <div class="btn-block"><br>
+          <button type="submit" class="submitBtn">CHECK</button>
+        </div>
+      </form>
+    </div>
+    <footer>
+        &copy; Copyright <strong><span>FinancialAI</span></strong><br>All Rights Reserved
+        <p style="color:gray;font-size: 13px;">Designed and developed in New York</p>
+    </footer>
+</body>
+
+</html>
