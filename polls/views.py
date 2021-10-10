@@ -212,14 +212,14 @@ def output(request):
 def inflationSection(inflationRate):
     section = '<div class="inflation">' \
               '<h1>Inflation</h1>' \
-              '<h1>Machine Learning Inflation Prediciton: '
+              '<h1>Machine Learning Inflation Prediction: '
 
     section += str(inflationRate)
     section += '%</h1>' \
-               '<h2>According to our machine learning model, your money will loose '
+               '<h2>According to our machine learning model, your money will lose '
 
     section += str(inflationRate)
-    section += '% next year.<br>To counter act this you can invest in the stock market, real estate, or commodities.</h2>' \
+    section += '% next year.<br>To counteract this you can invest in the stock market, real estate, or commodities.</h2>' \
                '<h2>S&P 500 2020 Return: 18.4%</h2>' \
                '<h2>Average Real Estate 2020 Return: 11.6%</h2>' \
                '<h2>Gold 2020 Return: 28%</h2>' \
@@ -242,7 +242,7 @@ def emergencyFund(savings, expenses, retirement, age):
 
     if (int(savings) > int(maxSaved)):
         saveSection += '<h3>You have too much in savings. You want to keep around 3-6 months of expenses in savings as an emergency ' \
-               'fund. Putting money into savings actually costs money because of inflation. It\'s better to put the excess in to investments.</h3>'
+               'fund. Putting money into savings actually costs money because of inflation. It\'s better to put the excess into investments.</h3>'
     elif (int(savings) > int(minSaved)):
         saveSection += '<h3>Your savings look great! Try and keep around 3-6 months of expenses in savings as an emergency fund.</h3>'
     elif (int(savings) < int(minSaved)):
@@ -257,7 +257,7 @@ def emergencyFund(savings, expenses, retirement, age):
     saveSection += ("{:,}".format(int(retirement)))
     saveSection += '</h2>' \
                    '<h3>' \
-                   'If current amount is invested into an S&P 500 index fund, at 65 years old the account value will be:<br>'
+                   'If the current amount is invested into an S&P 500 index fund, at 65 years old the account value will be:<br>'
     saveSection += '$' + compound(age, retirement)
 
     saveSection += '</h3>' \
