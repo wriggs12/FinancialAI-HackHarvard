@@ -286,7 +286,7 @@ def formatNetworth(netWorth, age):
                      [75, 200, '$958,450']]
 
     for i in range(5):
-        if (int(age) >= avgWorthByAge[i][0] & int(age) <= avgWorthByAge[i][1]):
+        if (int(age) >= avgWorthByAge[i][0] and int(age) <= avgWorthByAge[i][1]):
             return 'The average net worth for your age group is ' + avgWorthByAge[i][2]
 
 def creditCards(creditScore, creditLimit, images):
