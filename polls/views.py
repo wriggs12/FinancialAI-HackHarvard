@@ -246,7 +246,7 @@ def emergencyFund(savings, expenses, retirement, age):
     elif (int(savings) > int(minSaved)):
         saveSection += '<h3>Your savings look great! Try and keep around 3-6 months of expenses in savings as an emergency fund.</h3>'
     elif (int(savings) < int(minSaved)):
-        saveSection += '<h3>You need more savings! Try and budget to build up some savings in case of an emergency. It is best to have' \
+        saveSection += '<h3>You need more savings! Try and budget to build up some savings in case of an emergency. It is best to have ' \
                'around 3-6 months of expenses in savings as an emergency fund.</h3>'
 
     saveSection += '</div>' \
