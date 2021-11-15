@@ -8,7 +8,7 @@
     <img alt="GitHub followers" src="https://img.shields.io/github/followers/wriggs12?style=social">
   </a>
   <a href="https://github.com/wriggs12">
-    <img alt="Last Commit" src="https://img.shields.io/github/last-commit/wriggs12/Machine-Learning-Practice">
+    <img alt="Last Commit" src="https://img.shields.io/github/last-commit/wriggs12/FinancialAI-HackHarvard">
   </a>
 </p>
 Financial AI evaluates your personal finances and makes recommendations based on your financial situation.
