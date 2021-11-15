@@ -6,4 +6,4 @@
 Financial AI evaluates your personal finances and makes recommendations based on your financial situation.
 
 ## Link
-https://financial-ai.herokuapp.com/ (Will take a few seconds to load, the server will remove the site from memory if it's unused for some time)
+https://financial-ai.herokuapp.com/ (Will take a few seconds to load, the server will remove the site from chache if it's unused for some time)
