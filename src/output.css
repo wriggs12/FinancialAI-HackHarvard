@@ -1,0 +1,99 @@
+html {
+  font-family: sans-serif;
+  color: #555555;
+  background-color: #203354;
+}
+a {
+  text-decoration: none;
+  color: #555555;
+}
+#name {
+  color: white;
+}
+.content {
+  text-align: center;
+  justify-content: center;
+}
+.overview {
+  width: 100%;
+  text-align: center;
+}
+.bubble {
+  border-radius: 5px;
+  border: 1px solid grey;
+  padding: 1em;
+  margin: auto 3em;
+  display: inline-block;
+  width: 20em;
+  margin-top: 3em;
+  background-color: #f5f5f5;
+}
+.creditCards {
+  width: 90%;
+  background-color: #f5f5f5;
+  border-radius: 5px;
+  border: 1px solid grey;
+  margin: 3em auto;
+  height: 38em;
+}
+.card {
+  display: inline-block;
+  margin: auto 3em;
+  border-radius: 5px;
+  border: 1px solid grey;
+  padding: 1em;
+  width: 20em;
+  height: 75%;
+  overflow: hidden;
+  position: relative;
+}
+.money {
+  height: 15em;
+  margin-bottom: 6em;
+}
+.save {
+  border: 1px solid grey;
+  display: inline-block;
+  margin: auto 3em;
+  border-radius: 5px;
+  padding: 1em;
+  background-color: #f5f5f5;
+  width: 35em;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+.inflation {
+  width: 90%;
+  border-radius: 5px;
+  border: 1px solid grey;
+  margin: 3em auto;
+  height: 24em;
+}
+.card img {
+  width: 15em;
+}
+.imgContain {
+  height: 15em;
+}
+.inflation {
+  background-color: #f5f5f5;
+}
+form {
+  text-align: center;
+}
+form a {
+  border: none;
+  padding: 16px 32px;
+  background-color: #f5f5f5; 
+  font-size: 16px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border-radius: 5px;
+  text-decoration: none;
+  color: black;
+}
+form a:hover {
+  background-color: #008CBA;
+  color: white;
+}
