@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import "./output.css";
 import "./App.css";
 import amex from "./images/amex.png";
@@ -10,6 +11,12 @@ import fizz from "./images/fizz.png"
 import wellsfargo from "./images/wells_fargo.png"
 
 function Output({setIsAppOpen, creditScore, netIncome, netWorth, age, savings, totalRetirement, expenses, creditLimit}) {
+    useEffect(() => {
+        fetch("http://localhost:5000")
+        .then(response => response.json())
+        .then(data => console.log(data));
+    }, []);
+
     function getAvgNetWorth() {
         if (age < 35) {
             return "$76,340";

@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, make_response, jsonify
 
 api = Flask(__name__)
 
@@ -9,4 +9,10 @@ def my_profile():
         "about" :"Hello! I'm a full stack developer that loves python and javascript"
     }
 
-    return response_body
+    response = make_response(jsonify(response_body))
+
+    response.headers.add("Access-Control-Allow-Origin", "*")
+    response.headers.add("Access-Control-Allow-Headers", "*")
+    response.headers.add("Access-Control-Allow-Methods", "*")
+
+    return response
