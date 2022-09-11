@@ -59,7 +59,7 @@ function Output({setIsAppOpen, creditScore, netIncome, netWorth, age, savings, t
                 recommendation = [cards[8], cards[9], cards[10]];
 
         return <div>
-        <a href={recommendation[0][6]}>
+        <a href={recommendation[0][6]} target="_blank" rel="noreferrer noopener">
             <div className="card">
                 <h1>
                     {
@@ -76,7 +76,7 @@ function Output({setIsAppOpen, creditScore, netIncome, netWorth, age, savings, t
                 </h3>
             </div>
         </a>
-        <a href={recommendation[1][6]}>
+        <a href={recommendation[1][6]} target="_blank" rel="noreferrer noopener">
             <div className="card">
                 <h1>
                     {
@@ -93,7 +93,7 @@ function Output({setIsAppOpen, creditScore, netIncome, netWorth, age, savings, t
                 </h3>
             </div>
         </a>
-        <a href={recommendation[2][6]}>
+        <a href={recommendation[2][6]} target="_blank" rel="noreferrer noopener">
             <div className="card">
                 <h1>
                     {
