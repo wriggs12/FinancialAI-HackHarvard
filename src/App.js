@@ -4,7 +4,6 @@ import banner from './images/FinancialAI_Banner.png';
 import Output from './output';
 
 function App() {  
-
   const [creditScore, setCreditScore] = useState("");
   const [netIncome, setNetIncome] = useState("");
   const [netWorth, setNetWorth] = useState("");
@@ -25,18 +24,9 @@ function App() {
       <div className="banner1">
         <h1 id="h1Main">Credit</h1>
       </div>
-      <div className="select-box">
-        <label htmlFor="select-box" className="label select-box">
-          <span className="label-desc">Choose your credit score: </span>
-        </label>
-        <select id="select-box" className="select" name="creditScore" value={creditScore} onChange={(e) => setCreditScore(e.target.value)}>
-          <option value="1">720 - 850 (Excellent)</option>
-          <option value="2">690 - 719 (Good)</option>
-          <option value="3">630 - 689 (Fair)</option>
-          <option value="4">300 - 629 (Bad)</option>
-          <option value="5">No Credit Score</option>
-        </select>
-      </div>
+      <label>Enter Your Credit Score: *</label><br/>
+      <input type="creditScore" name="creditScore" placeholder="Credit Score" required value={creditScore} onChange={(e) => setCreditScore(e.target.value)} />
+      <br/>
       <br/>
 
       <label>Number of Credit Lines: *</label><br/>

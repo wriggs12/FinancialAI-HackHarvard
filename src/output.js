@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import "./output.css";
 import "./App.css";
 import amex from "./images/amex.png";
@@ -11,11 +10,16 @@ import fizz from "./images/fizz.png"
 import wellsfargo from "./images/wells_fargo.png"
 
 function Output({setIsAppOpen, creditScore, netIncome, netWorth, age, savings, totalRetirement, expenses, creditLimit}) {
-    useEffect(() => {
-        fetch("http://localhost:5000")
-        .then(response => response.json())
-        .then(data => console.log(data));
-    }, []);
+    function getInflation() {
+        return <div class="inflation">
+            <h1>Inflation</h1>
+            <h1>2021 Inflation Rate: 7%</h1>
+            <h2>To counteract inflation you can invest in the stock market, real estate, or commodities.</h2>
+            <h2>Dow Jones 2021 Return: 18.65%</h2>
+            <h2>Average Real Estate 2021 Return: 9.5%</h2>
+            <h2>Gold 2021 Return: 4.3%</h2>
+        </div>
+    }
 
     function getAvgNetWorth() {
         if (age < 35) {
@@ -191,6 +195,9 @@ function Output({setIsAppOpen, creditScore, netIncome, netWorth, age, savings, t
                         }
                     </div>
                 </div>
+                {
+                    getInflation()
+                }
                 <button onClick={() => setIsAppOpen(true)}>Back</button>
             </div>
     );
