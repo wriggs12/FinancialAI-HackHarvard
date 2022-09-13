@@ -204,29 +204,3 @@ function Output({setIsAppOpen, creditScore, netIncome, netWorth, age, savings, t
 }
 
 export default Output;
-
-
-
-
-
-
-
-
-// def inflationSection(inflationRate):
-// section = '<div class="inflation">' \
-//           '<h1>Inflation</h1>' \
-//           '<h1>Machine Learning Inflation Prediction: '
-
-// section += str(inflationRate)
-// section += '%</h1>' \
-//            '<h2>According to our machine learning model, your money will lose '
-
-// section += str(inflationRate)
-// section += '% next year.<br>To counteract this you can invest in the stock market, real estate, or commodities.</h2>' \
-//            '<h2>S&P 500 2020 Return: 18.4%</h2>' \
-//            '<h2>Average Real Estate 2020 Return: 11.6%</h2>' \
-//            '<h2>Gold 2020 Return: 28%</h2>' \
-//            '</div>' \
-//            '</div>'
-
-// return section
