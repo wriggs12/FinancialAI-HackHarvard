@@ -14,4 +14,6 @@
 
 A react application built during the Harvard Hackathon in October 2021 aimed at providing financial suggestions to imporve personal finances and increase financail literacy. 
 
-Link To Project: https://financial-ai.herokuapp.com/ (Will take a few seconds to start if app is not cached)
+Link To Project: https://melodic-nougat-e6984a.netlify.app/
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/5acbb655-b16b-48b1-b305-de258ddc8f13/deploy-status)](https://app.netlify.com/sites/melodic-nougat-e6984a/deploys)
